@@ -9,4 +9,6 @@ that they had in the old file.
 
 To invoke the script, call it as:
 
+```sh
 php copy_comments.php <old_file_name> <new_file_name> > <output_file_name>
+```
