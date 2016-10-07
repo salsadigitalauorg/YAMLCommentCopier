@@ -163,6 +163,10 @@ EOF;
       } elseif (substr($thisLine, 0, 1) == "-") {
         // A patch - strip the leading hyphen and the quotes around the URL
         $thisLine = explode("'", $thisLine);
+        if (count($thisLine) == 1) {
+          // A human may have wrapped the patch URL in double quotes.
+          $thisLine = explode('"', $thisLine[0]);
+        }
         $thisLine = $thisLine[1];
       }
 
@@ -202,6 +206,10 @@ EOF;
         elseif (substr($thisLine, 0, 1) == "-") {
           // A patch - strip the leading hyphen and the quotes around the URL
           $thisLine = explode("'", $thisLine);
+          if (count($thisLine) == 1) {
+            // A human may have wrapped the patch URL in double quotes.
+            $thisLine = explode('"', $thisLine[0]);
+          }
           $thisLine = $thisLine[1];
         }
         $parents[] = $thisLine;
